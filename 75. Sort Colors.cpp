@@ -1,11 +1,17 @@
 void sortColors(vector<int>& nums) {
-        map<int, int> m;
-        for(auto value:nums)
-            m[value]++;
-        nums.clear();
+    int low = 0, mid = 0, high = nums.size() - 1;
 
-        for(auto& pair: m)
-            while(pair.second-- > 0)
-                nums.push_back(pair.first);
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low], nums[mid]);
+            low++;
+            mid++;
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else { // nums[mid] == 2
+            swap(nums[mid], nums[high]);
+            high--;
+        }
+    }
 }
 
