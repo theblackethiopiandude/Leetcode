@@ -13,3 +13,17 @@ string destCity(vector<vector<string>>& paths) {
         
         return "";
     }
+
+string destCity(vector<vector<string>>& paths) {
+        {
+            unordered_set<string> cityA;
+            for(const auto& path : paths)
+                cityA.insert(path[0]);       
+            
+            for(const auto& path : paths)
+                if(cityA.find(path[1]) == cityA.end())
+                    return path[1];
+        }
+
+        return "";
+    }
