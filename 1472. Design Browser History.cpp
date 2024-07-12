@@ -1,6 +1,6 @@
 class BrowserHistory {
 public:
-    BrowserHistory(const string& homepage) {
+    explicit BrowserHistory(const string& homepage) {
       curr = new Node(homepage);
     }
     
@@ -30,7 +30,7 @@ private:
             string value;
             Node* prev = nullptr;
             Node* next = nullptr;
-            Node(const string& value):value(value){ }
+            explicit Node(const string& value):value(value){ }
     };
 
     Node* curr = nullptr;
