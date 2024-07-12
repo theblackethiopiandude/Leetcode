@@ -1,10 +1,10 @@
 class BrowserHistory {
 public:
-    BrowserHistory(string homepage) {
+    BrowserHistory(string& homepage) {
       curr = new Node(homepage);
     }
     
-    void visit(string url) {
+    void visit(string& url) {
         auto node = new Node(url);
         curr->next = node;
         node->prev = curr;
@@ -30,7 +30,7 @@ private:
             string value;
             Node* prev = nullptr;
             Node* next = nullptr;
-            Node(string value):value(value){ }
+            Node(string& value):value(value){ }
     };
 
     Node* curr = nullptr;
