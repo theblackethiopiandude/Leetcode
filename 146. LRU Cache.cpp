@@ -4,7 +4,7 @@ public:
 
     }
 
-    int get(int key) {
+    int get(const int key) {
         if(umap.count(key)){
             auto node = umap[key];
 
@@ -30,7 +30,7 @@ public:
         return -1;
     }
 
-    void put(int key, int value) {
+    void put(const int key, const int value) {
         if(umap.count(key)){
             umap[key]->val.second = value;
             get(key);
