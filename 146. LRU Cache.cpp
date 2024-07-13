@@ -45,7 +45,7 @@ public:
                     tail = tail->prev;                  
                 }
             }
-            auto node = new Node(std::make_pair(key, value));
+            auto node = new Node(make_pair(key, value));
 
             if(head == nullptr){
                 head = node;
@@ -66,7 +66,7 @@ private:
         Node* next = nullptr;
         explicit Node(const pair<int, int>& val) : val(val){}
     };
-    std::unordered_map<int, Node*> umap;
+    unordered_map<int, Node*> umap;
     Node* head = nullptr;
     Node* tail = nullptr;
     int capacity;
