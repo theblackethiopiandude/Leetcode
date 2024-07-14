@@ -3,7 +3,16 @@ public:
     MyLinkedList() {
         
     }
-    
+
+    ~MyLinkedList() {
+        auto current = head;
+        while(current != nullptr){
+            Node* next = current->next;
+            delete current;
+            current = next;
+        } 
+    }
+
     int get(int index) {
         if(index < size){
             if(index == 0)
