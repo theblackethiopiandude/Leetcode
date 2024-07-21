@@ -30,3 +30,17 @@ bool containsNearbyDuplicate(vector<int>& nums, int k) {
         }
         return false;
     }
+
+bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int i = 0;
+        unordered_set<int> s;
+        for(int j = 0; j < nums.size(); j++){
+            if(j-i > k)
+                s.erase(nums[i++]);
+            if(s.count(nums[j]))
+                return true;
+            
+            s.insert(nums[j]);
+        }
+        return false;
+    }
