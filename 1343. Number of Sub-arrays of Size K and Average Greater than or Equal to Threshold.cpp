@@ -6,6 +6,7 @@ int numOfSubarrays(vector<int>& arr, int k, int threshold) {
             sum += arr[R];
             
             if(R - L + 1 == k){
+                cout << "L: " << L << " , R: " << R << " , SUM: " << sum << " , AVG: "<< sum/k << endl;
                 if(sum/k >= threshold) count++;
                 sum -= arr[L++];
             }
