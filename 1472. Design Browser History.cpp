@@ -5,6 +5,12 @@ public:
     }
     
     void visit(const string& url) {
+        Node* temp = curr->next;
+        while (temp) {
+            Node* nextNode = temp->next;
+            delete temp;
+            temp = nextNode;
+        }
         auto node = new Node(url);
         curr->next = node;
         node->prev = curr;
