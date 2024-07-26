@@ -24,6 +24,7 @@ int maxVowels(string s, int k) {
         return maxVowel;
     }
 
+// SWITCH IS FASTER
 
 int maxVowels(string s, int k) {
         int maxVowel = 0;
