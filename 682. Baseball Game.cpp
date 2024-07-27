@@ -24,3 +24,24 @@ int calPoints(vector<string>& operations) {
         }
         return ans;
     }
+
+int calPoints(vector<string>& operations) {
+        vector<int> s;
+        for(auto& opr : operations){
+            switch(opr[0]){
+                case '+':
+                    s.push_back(s.back() + *(s.end() - 2));
+                    break;
+                case 'D':
+                    s.push_back(s.back() * 2);
+                    break;
+                case 'C':
+                    s.pop_back();
+                    break;
+                default:
+                    s.push_back(stoi(opr));
+            }
+        }
+
+        return accumulate(s.begin(), s.end(), 0);
+    }
