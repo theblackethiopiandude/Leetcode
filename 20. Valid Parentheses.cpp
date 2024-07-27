@@ -1,18 +1,20 @@
 bool isValid(string s) {
         stack<char> st;
         {
-            unordered_map<char, char> umap;
-            umap[')'] = '(';
-            umap[']'] = '[';
-            umap['}'] = '{';
-            for(char ch: s)
-                if(!umap.count(ch))
+            unordered_map<char, char> omap, cmap;
+            omap = {{'[', ']'}, {'(', ')'}, {'{', '}'}};
+            cmap = {{']', '['}, {')', '('}, {'}', '{'}};
+
+            for(char ch: s){
+                if(omap.count(ch))
                     st.push(ch);
-                else
-                    if(!st.empty() && umap[ch] == st.top())
-                        st.pop();
-                    else
+                else{
+                    if(st.empty() || cmap[ch] !=  st.top())
                         return false;
+                    st.pop();
+                }      
+            }
         }
+        
         return st.empty();
     }
