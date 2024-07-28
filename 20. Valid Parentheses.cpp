@@ -17,7 +17,7 @@ bool isValid(string s) {
         }
         
         return st.empty();
-    }
+}
 
 bool isValid(string s) {
         stack<char> st;
@@ -31,7 +31,7 @@ bool isValid(string s) {
                     return false;
         
         return st.empty();
-    }
+}
 
 bool isValid(string s) {
         stack<char> st;
@@ -53,4 +53,4 @@ bool isValid(string s) {
         }
 
         return st.empty();
-    }
+}
