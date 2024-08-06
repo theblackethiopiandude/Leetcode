@@ -16,3 +16,17 @@ ListNode* reverseList(ListNode* head) {
         }
         return head;
     }
+
+
+ListNode* reverseList(ListNode* head) {
+        ListNode* prev = nullptr;
+
+        for(auto curr = head; curr;){
+            auto temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+
+        return prev;
+    }
