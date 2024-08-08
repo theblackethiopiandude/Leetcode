@@ -1,5 +1,6 @@
 ListNode* reverseBetween(ListNode* head, int left, int right) {
-
+        if(left == right)
+            return head;
 
         ListNode *entry = nullptr, *exit = nullptr;
         int i = 1;
@@ -27,4 +28,4 @@ ListNode* reverseBetween(ListNode* head, int left, int right) {
             head = prev;
 
         return head;
-    }
+}
