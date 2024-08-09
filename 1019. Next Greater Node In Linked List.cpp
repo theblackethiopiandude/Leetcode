@@ -16,3 +16,26 @@ vector<int> nextLargerNodes(ListNode* head) {
         }
         return ans;
   }
+
+vector<int> nextLargerNodes(ListNode* head) {
+        ListNode* prev = nullptr;
+        int n = 0;
+        for(auto curr = head; curr != nullptr; n++){
+            auto temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        vector<int> ans(n);
+        vector<int> mon;
+        for(auto curr = prev; curr != nullptr; curr = curr->next){
+            while(!mon.empty() && mon.back() <= curr->val)
+                mon.pop_back();
+            
+            ans[--n] = (mon.empty())? 0 : mon.back();
+
+            mon.push_back(curr->val);
+            
+        }
+        return ans;
+}
