@@ -17,4 +17,23 @@ ListNode* modifiedList(vector<int>& nums, ListNode* head) {
         }
 
         return head;
-  }
+}
+
+ListNode* modifiedList(vector<int>& nums, ListNode* head) {
+        unordered_set<int> uset(nums.begin(), nums.end());
+        
+        for(ListNode *curr = head, *prev = nullptr; curr != nullptr; curr = curr->next){     
+            if(uset.count(curr->val)){
+                if(prev){
+                    prev->next = curr->next;
+                }else{
+                    head = curr->next;
+                }
+                
+                continue;
+            }
+            prev = curr;
+        }
+
+        return head;
+}
