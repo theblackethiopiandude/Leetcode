@@ -16,3 +16,14 @@ ListNode *detectCycle(ListNode *head) {
 
         return slow;
     }
+
+ListNode *detectCycle(ListNode *head) {
+        unordered_set<ListNode*> us;
+        for(auto curr = head; curr; curr = curr->next){
+            if(us.count(curr))
+                return curr;
+            us.insert(curr);
+        }
+
+        return nullptr;
+    }
