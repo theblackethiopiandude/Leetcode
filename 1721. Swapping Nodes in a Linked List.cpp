@@ -10,3 +10,18 @@ ListNode* swapNodes(ListNode* head, int k) {
         
         return nh;
     }
+
+ListNode* swapNodes(ListNode* head, int k) {
+        ListNode *first = head, *second = head;
+        int size = 0;
+        for(auto curr = head; curr; curr = curr->next, size++)
+            if(size + 1 == k)
+                first = curr;
+        
+        for(int i = 0; i < size-k; i++)
+            second = second->next;
+        
+        swap(first->val, second->val);
+        
+        return head;
+    }
