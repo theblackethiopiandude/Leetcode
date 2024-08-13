@@ -18,3 +18,22 @@ ListNode* deleteDuplicates(ListNode* head) {
 
         return dummy->next;
     }
+
+ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* dummy = new ListNode(101, head);
+
+        for(auto curr = head, prev = dummy; curr; curr = curr->next){
+            bool hasDuplicate = false;
+            while(curr->next && curr->val == curr->next->val){
+                hasDuplicate = true;
+                curr = curr->next;
+            }
+
+            if (hasDuplicate)
+                prev->next = curr->next;
+            else
+                prev = curr;
+        }
+
+        return dummy->next;
+    }
