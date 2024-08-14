@@ -36,3 +36,38 @@ ListNode* removeNodes(ListNode* head) {
 
         return dummy->next;
   }
+
+ListNode* removeNodes(ListNode* head) {
+        vector<int> st;
+        for(ListNode *curr = head, *ptr = nullptr; curr; curr = curr->next, delete ptr){
+            ptr = curr;
+            while(!st.empty() && st.back() < curr->val)
+                st.pop_back();
+            st.push_back(curr->val);
+        }
+        auto dummy = new ListNode();
+        auto curr = dummy;
+        for(int num: st){
+            curr->next = new ListNode(num);
+            curr = curr->next;
+        }
+
+        return dummy->next;
+}
+
+ListNode* removeNodes(ListNode* head) {
+        vector<int> st;
+        for(auto curr = head; curr; curr = curr->next){
+            while(!st.empty() && st.back() < curr->val)
+                st.pop_back();
+            st.push_back(curr->val);
+        }
+        auto dummy = new ListNode();
+        auto curr = dummy;
+        for(int num: st){
+            curr->next = new ListNode(num);
+            curr = curr->next;
+        }
+
+        return dummy->next;
+}
