@@ -33,3 +33,21 @@ int carFleet(int target, vector<int>& position, vector<int>& speed) {
         }
         return st.size();
     }
+
+int carFleet(int target, vector<int>& position, vector<int>& speed) {
+        map<int, int> umap;
+        for(int i = 0; i < speed.size(); i++){
+            umap[position[i]] = speed[i];
+        }
+        int fleet_count = 1;
+        float max = (float)(target - (umap.rbegin())->first) / (umap.rbegin())->second;
+
+        for(auto it = umap.rbegin(); it != umap.rend(); it++){
+            float time = (target - it->first) / (float)(it->second);
+            if(time > max){
+                max = time;
+                fleet_count++;
+            }
+        }
+        return fleet_count;
+    }
