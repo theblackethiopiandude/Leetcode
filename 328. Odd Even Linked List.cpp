@@ -19,4 +19,4 @@ ListNode* oddEvenList(ListNode* head) {
         e->next = nullptr;
         e->next = odd->next;
         return even->next;
-  }
+}
