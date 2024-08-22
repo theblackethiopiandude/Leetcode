@@ -16,3 +16,21 @@ bool isPalindrome(ListNode* head) {
 
         return true;
   }
+
+bool isPalindrome(ListNode* head) {
+        ListNode *prev = nullptr, *slow = head;
+        for(auto fast = head; fast&&fast->next; fast = fast->next->next, slow = slow->next);
+
+        for(auto curr = slow; curr;){
+            auto tmp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = tmp;
+        }
+        
+        for(;prev; prev = prev->next, head = head->next)
+            if(prev->val != head->val)
+                return false;
+
+        return true;
+    }
