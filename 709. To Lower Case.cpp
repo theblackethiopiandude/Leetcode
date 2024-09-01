@@ -5,3 +5,11 @@ string toLowerCase(string s) {
 
         return s;
   }
+
+string toLowerCase(string s) {
+        for(char& ch: s)
+            if(65 <= ch && ch <= 90)
+                ch |= 32; // can also be SPACE ' '
+
+        return s;
+}
