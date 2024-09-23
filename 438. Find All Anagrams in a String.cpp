@@ -17,3 +17,30 @@ vector<int> findAnagrams(string s, string p) {
 
         return ans;
 }    // Works with TLE!
+
+vector<int> findAnagrams(string s, string p) {
+        vector<int> ans, pcount(26, 0), scount(26, 0);
+        const int window_size = p.length();
+
+        for(char c: p)
+            pcount[c - 'a']++;
+
+        for(int L = 0, R = 0; R < s.length(); R++){
+            scount[s[R] - 'a']++;
+
+            if((R - L + 1) == window_size){
+                bool valid = true;
+                for(int i = 0; i < 26; i++)
+                    if(pcount[i] != scount[i])
+                        valid = false;
+
+                if(valid)
+                    ans.push_back(L);
+
+                scount[s[L++] - 'a']--;
+                
+            }
+        }
+
+        return ans;
+}
