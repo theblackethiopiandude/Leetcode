@@ -10,5 +10,5 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
         for(auto& pair: umap)
             ans.push_back(pair.second);
         
-        return ans;
-    }
+        return and;
+}
