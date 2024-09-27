@@ -53,6 +53,8 @@ private:
                     bool valid = true;
                     search(value, word, index + 1, valid);
                     average = average || valid;
+                    if(average)
+                        break;
                 }
                 found = average;
             }
