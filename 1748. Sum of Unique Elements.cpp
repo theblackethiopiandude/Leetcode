@@ -16,3 +16,16 @@ int sumOfUnique(vector<int>& nums) {
 
         return accumulate(n.begin(), n.end(), 0);
     }
+
+int sumOfUnique(vector<int>& nums) {
+        unordered_map<int, int> umap;
+
+        for(int num: nums)
+            umap[num]++;
+
+        auto accumulate_unique_keys = [](int sum, const std::pair<int, int>& pair) {
+            return sum + ((pair.second == 1)? pair.first : 0);
+        };
+
+        return accumulate(umap.begin(), umap.end(), 0, accumulate_unique_keys);
+    }
