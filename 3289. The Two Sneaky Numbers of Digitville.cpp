@@ -1,5 +1,5 @@
 vector<int> getSneakyNumbers(vector<int>& nums) {
-        set<int> seen;
+        set<int> seen; // unordered_set
         vector<int> ans;
 
         for(const int num: nums){
