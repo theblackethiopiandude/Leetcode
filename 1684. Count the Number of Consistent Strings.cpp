@@ -7,7 +7,7 @@ int countConsistentStrings(string allowed, vector<string>& words) {
         for(const auto& word : words){
             bool allow = true;
             for(int i = 0; i < word.length(); i++)
-                if(!umap[word[i] - 'a']){
+                if(!umap[word[i] - 'a']){ // Runtime Error but worked as a test case
                     allow = false;
                     break;
                 }
@@ -15,7 +15,7 @@ int countConsistentStrings(string allowed, vector<string>& words) {
             if(allow) ans++;
         }
         return ans;
-    } // Runtime Error but worked as a test case
+    } 
 
 int countConsistentStrings(string allowed, vector<string>& words) {
         unordered_set<char> uset(allowed.begin(), allowed.end());
