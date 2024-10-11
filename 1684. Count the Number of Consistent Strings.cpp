@@ -1,5 +1,5 @@
 int countConsistentStrings(string allowed, vector<string>& words) {
-        bool umap[26];
+        bool umap[26] = {false};
         for(char ch: allowed)
             umap[ch - 'a'] = true;
         
@@ -7,7 +7,7 @@ int countConsistentStrings(string allowed, vector<string>& words) {
         for(const auto& word : words){
             bool allow = true;
             for(int i = 0; i < word.length(); i++)
-                if(!umap[word[i] - 'a']){ // Runtime Error but worked as a test case
+                if(!umap[word[i] - 'a']){ // Runtime Error but worked as a test case [FIX] was because all umap elements were not initialized & contained garbage values unless explicitly set. Accessing or using these uninitialized values leads to unpredictable behavior
                     allow = false;
                     break;
                 }
