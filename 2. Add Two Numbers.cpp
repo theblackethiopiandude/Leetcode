@@ -19,7 +19,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
             l2 = (l2 != nullptr) ? l2->next : nullptr;
         }
         return dummyHead->next;
-    }
+}
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* dummy = new ListNode();
         ListNode* res = dummy;
@@ -44,4 +44,4 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         }
 
         return res->next; 
-    }
+}
