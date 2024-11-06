@@ -18,4 +18,4 @@ vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         }
 
         return ans;
-  }
+}
