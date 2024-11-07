@@ -11,4 +11,4 @@ vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
         }
 
         return ans;
-    }
+}
