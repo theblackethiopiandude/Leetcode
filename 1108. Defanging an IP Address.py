@@ -1,3 +1,2 @@
-string defangIPaddr(string address) {
-        return regex_replace(address, regex("\\."), "[.]");
-    }
+def defangIPaddr(self, address: str) -> str:
+        return address.replace(".", "[.]")
