@@ -4,5 +4,5 @@ fun numberOfEmployeesWhoMetTarget(hours: IntArray, target: Int): Int {
             if(hour >= target)
                 ans++;
                 
-        return ans;
-    }
+        return and;
+}
