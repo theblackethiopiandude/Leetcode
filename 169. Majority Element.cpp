@@ -14,4 +14,4 @@ int majorityElement(vector<int>& nums) {
             }
 
         return ans.first;
-    }
+}
