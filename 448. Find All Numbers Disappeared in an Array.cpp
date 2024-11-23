@@ -18,4 +18,4 @@ vector<int> findDisappearedNumbers(vector<int>& nums) {
                 ans.push_back(i+1);
         
         return ans;
-    }
+}
