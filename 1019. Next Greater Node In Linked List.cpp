@@ -15,7 +15,7 @@ vector<int> nextLargerNodes(ListNode* head) {
             
         }
         return ans;
-  }
+}
 
 vector<int> nextLargerNodes(ListNode* head) {
         ListNode* prev = nullptr;
