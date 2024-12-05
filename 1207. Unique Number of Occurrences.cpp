@@ -13,7 +13,7 @@ bool uniqueOccurrences(vector<int>& arr) {
         }
 
         return true;
-    }
+}
 
 bool uniqueOccurrences(vector<int>& arr) {
         unordered_map<int, int> umap;
@@ -27,4 +27,4 @@ bool uniqueOccurrences(vector<int>& arr) {
                 return false;
 
         return true;
-    }
+}
