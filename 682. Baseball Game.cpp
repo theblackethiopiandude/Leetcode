@@ -44,4 +44,4 @@ int calPoints(vector<string>& operations) {
         }
 
         return accumulate(s.begin(), s.end(), 0);
-    }
+}
