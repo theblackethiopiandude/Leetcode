@@ -12,3 +12,17 @@ int waysToSplitArray(vector<int>& nums) {
         
         return count;
     }
+
+int waysToSplitArray(vector<int>& nums) {
+        int count = 0;
+        
+        for(long long i = 0, L = 0, R = accumulate(nums.begin(), nums.end(), 0LL); i < nums.size()-1; i++){
+            L += nums[i];
+            R -= nums[i];
+
+            if(L >= R)
+                count++;
+        }
+
+        return count;
+    }
