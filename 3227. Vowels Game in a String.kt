@@ -13,3 +13,16 @@ class Solution {
         else -> false;
     };
 }
+
+
+class Solution {
+    fun doesAliceWin(s: String): Boolean {
+        return s.any { it.isVowel() };
+    }
+
+    fun Char.isVowel() = when(this){
+        'a', 'e', 'i', 'o', 'u',
+        'A', 'E', 'I', 'O', 'U' -> true
+        else -> false;
+    };
+}
