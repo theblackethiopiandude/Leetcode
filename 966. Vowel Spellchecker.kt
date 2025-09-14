@@ -1,5 +1,30 @@
 class Solution {
     fun spellchecker(wordlist: Array<String>, queries: Array<String>): Array<String> {
+        val exact = wordlist.toSet()
+        val caseMap = wordlist.groupBy { it.lowercase() }.mapValues { it.value[0] }
+        val vowelMap = wordlist.groupBy { it.normalize() }.mapValues { it.value[0] }
+        
+        return queries.map{ query ->
+            when {
+                query in exact -> query
+                query.lowercase() in caseMap -> caseMap[query.lowercase()]!!
+                query.normalize() in vowelMap -> vowelMap[query.normalize()]!!
+                else -> ""
+            }
+        }.toTypedArray()
+    }
+
+    fun Char.isVowel(): Boolean = when(this){
+        'a', 'e', 'i', 'o', 'u' -> true
+        else -> false
+    }
+
+    fun String.normalize() = this.lowercase().map { if (it.isVowel()) '*' else it }.joinToString("")
+
+}
+----
+class Solution {
+    fun spellchecker(wordlist: Array<String>, queries: Array<String>): Array<String> {
         val words = wordlist.toSet()
         val grouped = wordlist.groupBy { it.lowercase() }
         val ans: Array<String> = Array(queries.size) { "" }
