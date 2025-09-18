@@ -44,9 +44,7 @@ class TaskManager(tasks: List<List<Int>>) {
 
     init{        
         tasks.forEach {
-            val t = Task(it[0], it[1], it[2])
-            q.add(t)
-            taskMap[t.taskId] = t
+            add(it[0], it[1], it[2])
         }
     }
 
