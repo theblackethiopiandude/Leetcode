@@ -20,3 +20,21 @@ class Solution {
         return totalDrunk
     }
 }
+
+//-------------------
+
+class Solution {
+    fun maxBottlesDrunk(numBottles: Int, numExchange: Int): Int {
+        var exchange = numExchange
+        var empty = numBottles
+        var totalDrunk = numBottles
+
+        while(empty >= exchange){
+            empty -= exchange++
+            totalDrunk++
+            empty++
+        }
+
+        return totalDrunk
+    }
+}
