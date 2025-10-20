@@ -15,3 +15,20 @@ class Solution {
         return x
     }
 }
+
+
+class Solution {    
+    fun finalValueAfterOperations(operations: Array<String>): Int {
+        var x = 0
+
+        for (op in operations) {
+            if(op == "++X" || op == "X++"){
+                x++
+            }else{
+                x--
+            }
+        }
+
+        return x
+    }
+}
